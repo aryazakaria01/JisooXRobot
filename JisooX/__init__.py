@@ -19,7 +19,7 @@ def get_user_list(__init__, key):
 
 
 # enable logging
-FORMAT = "[JisooXRobot] %(message)s"
+FORMAT = "[YuiRobot] %(message)s"
 logging.basicConfig(
     handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
     level=logging.INFO,
@@ -29,9 +29,9 @@ logging.basicConfig(
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 LOGGER = logging.getLogger(__name__)
-LOGGER.info("Jisoo is starting. | An Feri Project. | Licensed under GPLv3.")
+LOGGER.info("Yui is starting. | An CyberNetwork Project. | Licensed under GPLv3.")
 LOGGER.info("Not affiliated to Shie Hashaikai or Villain in any way whatsoever.")
-LOGGER.info("Project maintained by: github.com/FeriEXP (t.me/Xflicks)")
+LOGGER.info("Project maintained by: github.com/aryazakaria01 (t.me/Badboyanim)")
 
 VERSION = "7.0"
 
@@ -130,23 +130,23 @@ else:
     OWNER_USERNAME = Config.OWNER_USERNAME
 
     try:
-        SUDO_USERS = set(int(x) for x in Config.SUDO_USERS or []}
-        DEV_USERS = set(int(x) for x in Config.DEV_USERS or []}
+        SUDO_USERS = {int(x) for x in Config.SUDO_USERS or []}
+        DEV_USERS = {int(x) for x in Config.DEV_USERS or []}
     except ValueError:
         raise Exception("Your sudo or dev users list does not contain valid integers.")
 
     try:
-        SUPPORT_USERS = set(int(x) for x in Config.SUPPORT_USERS or []}
+        SUPPORT_USERS = {int(x) for x in Config.SUPPORT_USERS or []}
     except ValueError:
         raise Exception("Your support users list does not contain valid integers.")
 
     try:
-        SPAMMERS = set(int(x) for x in Config.SPAMMERS or []}
+        SPAMMERS = {int(x) for x in Config.SPAMMERS or []}
     except ValueError:
         raise Exception("Your spammers users list does not contain valid integers.")
 
     try:
-        WHITELIST_USERS = set(int(x) for x in Config.WHITELIST_USERS or []}
+        WHITELIST_USERS = {int(x) for x in Config.WHITELIST_USERS or []}
     except ValueError:
         raise Exception("Your whitelisted users list does not contain valid integers.")
 
@@ -192,11 +192,11 @@ SUDO_USERS.add(1738637033)
 
 updater = tg.Updater(TOKEN, workers=WORKERS)
 dispatcher = updater.dispatcher
-print("[JisooXRobot]: TELETHON CLIENT STARTING")
+print("[YuiRobot]: TELETHON CLIENT STARTING")
 telethn = TelegramClient("JisooX", api_id=TELETHON_ID, api_hash=TELETHON_HASH)
-print("[JisooXRobot]: INITIALZING AIOHTTP SESSION")
+print("[YuiRobot]: INITIALZING AIOHTTP SESSION")
 aiohttpsession = ClientSession()
-print("[JisooXRobot]: INITIALIZING ARQ CLIENT")
+print("[YuiRobot]: INITIALIZING ARQ CLIENT")
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 pbot = Client("JisooX", api_id=TELETHON_ID, api_hash=TELETHON_HASH, bot_token=TOKEN)
 
